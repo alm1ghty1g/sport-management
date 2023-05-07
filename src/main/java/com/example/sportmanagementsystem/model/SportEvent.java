@@ -29,6 +29,9 @@ public class SportEvent {
     @JsonIgnore
     private Organization organization;
 
+    @ManyToOne
+    private User user;
+
 
 
 }
