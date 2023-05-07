@@ -2,12 +2,10 @@ package com.example.sportmanagementsystem.service;
 
 import com.example.sportmanagementsystem.model.Organization;
 import com.example.sportmanagementsystem.model.Participant;
-import com.example.sportmanagementsystem.model.Reward;
 import com.example.sportmanagementsystem.model.SportEvent;
 import com.example.sportmanagementsystem.repository.EventRepository;
 import com.example.sportmanagementsystem.repository.OrganizationRepository;
 import com.example.sportmanagementsystem.repository.ParticipantRepository;
-import com.example.sportmanagementsystem.repository.RewardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,17 +19,13 @@ public class OrganizationService {
 
     private final ParticipantRepository participantRepository;
 
-    private final RewardRepository rewardRepository;
-
-
     private final EventRepository eventRepository;
 
 
     @Autowired
-    public OrganizationService(OrganizationRepository organizationRepository, ParticipantRepository participantRepository, RewardRepository rewardRepository, EventRepository eventRepository) {
+    public OrganizationService(OrganizationRepository organizationRepository, ParticipantRepository participantRepository, EventRepository eventRepository) {
         this.organizationRepository = organizationRepository;
         this.participantRepository = participantRepository;
-        this.rewardRepository = rewardRepository;
         this.eventRepository = eventRepository;
     }
 
@@ -50,11 +44,6 @@ public class OrganizationService {
             for (Participant participant : participantList) {
                 participant.setOrganization(null);
                 participantRepository.save(participant);
-            }
-            List<Reward> rewardList = organization.getRewardList();
-            for (Reward reward : rewardList) {
-                reward.setOrganization(null);
-                rewardRepository.save(reward);
             }
             SportEvent event = organization.getSportEvent();
             event.setOrganization(null);

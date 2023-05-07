@@ -2,13 +2,9 @@ package com.example.sportmanagementsystem.service;
 
 
 import com.example.sportmanagementsystem.model.Organization;
-import com.example.sportmanagementsystem.model.Reward;
 import com.example.sportmanagementsystem.model.SportEvent;
-import com.example.sportmanagementsystem.model.User;
 import com.example.sportmanagementsystem.repository.EventRepository;
 import com.example.sportmanagementsystem.repository.OrganizationRepository;
-import com.example.sportmanagementsystem.repository.RewardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,12 +17,9 @@ public class EventService {
 
     private final OrganizationRepository organizationRepository;
 
-    private final RewardRepository rewardRepository;
-
-    public EventService(EventRepository eventRepository, OrganizationRepository organizationRepository, RewardRepository rewardRepository) {
+    public EventService(EventRepository eventRepository, OrganizationRepository organizationRepository) {
         this.eventRepository = eventRepository;
         this.organizationRepository = organizationRepository;
-        this.rewardRepository = rewardRepository;
     }
 
     public List<SportEvent> retrieveAllEvents() {
@@ -43,9 +36,6 @@ public class EventService {
             Organization organization = event.getOrganization();
             organization.setSportEvent(null);
             organizationRepository.save(organization);
-            Reward reward = event.getReward();
-//            reward.setSportEvent(null);
-            rewardRepository.save(reward);
             eventRepository.deleteById(id);
         }
     }

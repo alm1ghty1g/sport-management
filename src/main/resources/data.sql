@@ -1,9 +1,22 @@
+insert into sport_event (ID, EVENT_NAME, REWARD, EVENT_DATE)
+values (101, 'Footbal game event', 'Laptop', '2023-12-12');
+insert into sport_event (ID, EVENT_NAME, REWARD, EVENT_DATE)
+values (102, 'Basketball game event', 'Cellphone', '2023-11-11');
+insert into sport_event (ID, EVENT_NAME, REWARD, EVENT_DATE)
+values (103, 'Hockey game event', 'Keyboard', '2023-10-10');
+
+insert into organization (ID, ORGANIZATION_NAME, SPORT_EVENT_ID)
+values (501, 'Dinamo', 101);
+insert into organization (ID, ORGANIZATION_NAME, SPORT_EVENT_ID)
+values (502, 'Spartak', 102);
+insert into organization (ID, ORGANIZATION_NAME, SPORT_EVENT_ID)
+values (503, 'Juventus', 103);
 insert into organization (ID, ORGANIZATION_NAME)
-values (501, 'Dinamo');
+values (504, 'Dinamo');
 insert into organization (ID, ORGANIZATION_NAME)
-values (502, 'Spartak');
+values (505, 'Spartak');
 insert into organization (ID, ORGANIZATION_NAME)
-values (503, 'Juventus');
+values (506, 'Juventus');
 
 
 insert into user_details (ID, FIRST_NAME, LAST_NAME)
@@ -37,28 +50,4 @@ insert into participant (ID, FIRST_NAME, LAST_NAME, ORGANIZATION_ID)
 values (608, 'Ildar', 'Ildarov', 503);
 insert into participant (ID, FIRST_NAME, LAST_NAME, ORGANIZATION_ID)
 values (609, 'Igor', 'Igorev', 503);
-
-
-insert into reward (ID, REWARD_NAME, ORGANIZATION_ID)
-values (201, 'Laptop',503);
-insert into reward (ID, REWARD_NAME, ORGANIZATION_ID)
-values (202, 'Cellphone', 502);
-insert into reward (ID, REWARD_NAME, ORGANIZATION_ID)
-values (203, 'Keyboard', 501);
-
-
-insert into sport_event (ID, EVENT_NAME, REWARD_ID)
-values (101, 'Footbal game event', 201);
-insert into sport_event (ID, EVENT_NAME, REWARD_ID)
-values (102, 'Basketball game event', 202);
-insert into sport_event (ID, EVENT_NAME, REWARD_ID)
-values (103, 'Hockey game event', 203);
-
-
-update organization
-set SPORT_EVENT_ID = 101 WHERE ID = 501;
-update organization
-set SPORT_EVENT_ID = 102 WHERE ID = 502;
-update organization
-set SPORT_EVENT_ID = 103 WHERE ID = 503;
 
