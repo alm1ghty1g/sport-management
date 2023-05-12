@@ -4,6 +4,7 @@ package com.example.sportmanagementsystem.service;
 import com.example.sportmanagementsystem.model.User;
 import com.example.sportmanagementsystem.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -41,6 +44,7 @@ public class UserService {
 
 
     public User createUser(User createUserRequest) {
+        createUserRequest.setPassword(passwordEncoder.encode(createUserRequest.getPassword()));
         return userRepository.save(createUserRequest);
     }
 }

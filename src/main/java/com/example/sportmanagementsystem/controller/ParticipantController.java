@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -52,6 +53,7 @@ public class ParticipantController {
             @ApiResponse(responseCode = "404", description = "Participant not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteById(@PathVariable int id) {
         participantService.deleteById(id);
         return ResponseEntity.noContent().build();
@@ -65,6 +67,7 @@ public class ParticipantController {
             @ApiResponse(responseCode = "404", description = "Participant not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Participant> patchById(
             @PathVariable int id,
             @RequestBody Participant updateParticipant) {
@@ -78,6 +81,7 @@ public class ParticipantController {
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Participant> create(@RequestBody Participant createParticipantRequest) {
         Participant response = participantService.createParticipant(createParticipantRequest);
         return ResponseEntity

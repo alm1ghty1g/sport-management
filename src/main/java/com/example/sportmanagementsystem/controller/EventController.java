@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -50,6 +51,7 @@ public class EventController {
             @ApiResponse(responseCode = "404", description = "Event not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> deleteById(@PathVariable int id) {
         eventService.deleteById(id);
         return ResponseEntity.noContent().build();
@@ -63,6 +65,7 @@ public class EventController {
             @ApiResponse(responseCode = "404", description = "Event not found"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<SportEvent> patchById(
             @PathVariable int id,
             @RequestBody SportEvent updateEvent) {
@@ -76,6 +79,7 @@ public class EventController {
             @ApiResponse(responseCode = "400", description = "Bad request"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<SportEvent> create(@RequestBody SportEvent createEventRequest) {
         SportEvent response = eventService.createEvent(createEventRequest);
         return ResponseEntity

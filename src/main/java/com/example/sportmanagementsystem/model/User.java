@@ -2,11 +2,10 @@ package com.example.sportmanagementsystem.model;
 
 
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -25,6 +24,10 @@ public class User {
     private String lastName;
 
     private String emailAddress;
+
+    private String password;
+
+    private String roles;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<SportEvent> eventList;

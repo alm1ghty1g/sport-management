@@ -1,10 +1,10 @@
 package com.example.sportmanagementsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -21,8 +21,10 @@ public class Organization {
     private String organizationName;
 
     @OneToMany(mappedBy = "organization")
+    @JsonIgnore
     private List<Participant> participantList;
 
     @OneToOne
+    @JsonIgnore
     private SportEvent sportEvent;
 }

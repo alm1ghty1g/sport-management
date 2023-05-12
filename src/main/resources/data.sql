@@ -27,21 +27,35 @@ insert into organization (ID, ORGANIZATION_NAME)
 values (506, 'Juventus');
 
 
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1001, 'Ivan', 'Ivanov', 'vaodincova@fa.ru');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1002, 'Petr', 'Petrov', 'kagorshkov@fa.ru');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1003, 'Sidor', 'Sidorov', 'malitvina@fa.ru');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1004, 'Anton', 'Antonov', 'dokarpeev@fa.ru');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1005, 'Egor', 'Egorov', 'teelxp@inbox.ru');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1006, 'Ignat', 'Ignatov', 'koroteevmv@gmail.com');
-insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
-values (1007, 'Ashot', 'Ashotov', 'gnzholobova@fa.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1001, 'Ivan', 'Ivanov', 'vaodincova@fa.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1002, 'Petr', 'Petrov', 'kagorshkov@fa.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1003, 'Sidor', 'Sidorov', 'malitvina@fa.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1004, 'Anton', 'Antonov', 'dokarpeev@fa.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1005, 'Egor', 'Egorov', 'teelxp@inbox.ru');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1006, 'Ignat', 'Ignatov', 'koroteevmv@gmail.com');
+-- insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+-- values (1007, 'Ashot', 'Ashotov', 'gnzholobova@fa.ru');
 
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1001, 'Ivan', 'Ivanov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1002, 'Petr', 'Petrov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1003, 'Sidor', 'Sidorov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1004, 'Anton', 'Antonov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1005, 'Egor', 'Egorov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1006, 'Ignat', 'Ignatov', null);
+insert into user_details (ID, FIRST_NAME, LAST_NAME, EMAIL_ADDRESS)
+values (1007, 'Ashot', 'Ashotov', null);
 
 insert into participant (ID, FIRST_NAME, LAST_NAME, ORGANIZATION_ID)
 values (601, 'Oleg', 'Olegov', 501);
@@ -64,16 +78,23 @@ values (609, 'Igor', 'Igorev', 503);
 
 
 update sport_event
-set USER_ID = 1001 where ID = 101;
+set USER_ID = 1001
+where ID = 101;
 update sport_event
-set USER_ID = 1002 where ID = 102;
+set USER_ID = 1002
+where ID = 102;
 update sport_event
-set USER_ID = 1003 where ID = 103;
+set USER_ID = 1003
+where ID = 103;
 update sport_event
-set USER_ID = 1004 where ID = 104;
+set USER_ID = 1004
+where ID = 104;
 update sport_event
-set USER_ID = 1005 where ID = 105;
+set USER_ID = 1005
+where ID = 105;
 update sport_event
-set USER_ID = 1006 where ID = 106;
+set USER_ID = 1006
+where ID = 106;
 update sport_event
-set USER_ID = 1007 where ID = 107;
+set USER_ID = 1007
+where ID = 107;

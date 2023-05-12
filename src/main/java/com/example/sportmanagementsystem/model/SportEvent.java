@@ -2,11 +2,12 @@ package com.example.sportmanagementsystem.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
 import java.time.LocalDate;
 
 @Data
@@ -30,6 +31,7 @@ public class SportEvent {
     private Organization organization;
 
     @ManyToOne
+    @JsonIgnore
     private User user;
 
 
